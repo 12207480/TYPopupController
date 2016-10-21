@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B27440C1DB9AFC40057FAA8 /* TYDropDownAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27440B1DB9AFC40057FAA8 /* TYDropDownAnimator.m */; };
 		2B2744121DB9B23C0057FAA8 /* TYCoverVertiAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2744111DB9B23C0057FAA8 /* TYCoverVertiAnimator.m */; };
+		2B27442D1DB9F1D50057FAA8 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27442C1DB9F1D50057FAA8 /* LoginView.m */; };
+		2B27442F1DB9F1E50057FAA8 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B27442E1DB9F1E50057FAA8 /* LoginView.xib */; };
 		2B8DF78B1DB8AD6B009237B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF78A1DB8AD6B009237B2 /* main.m */; };
 		2B8DF78E1DB8AD6B009237B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF78D1DB8AD6B009237B2 /* AppDelegate.m */; };
 		2B8DF7911DB8AD6B009237B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7901DB8AD6B009237B2 /* ViewController.m */; };
@@ -38,6 +40,9 @@
 		2B27440B1DB9AFC40057FAA8 /* TYDropDownAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDropDownAnimator.m; sourceTree = "<group>"; };
 		2B2744101DB9B23C0057FAA8 /* TYCoverVertiAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCoverVertiAnimator.h; sourceTree = "<group>"; };
 		2B2744111DB9B23C0057FAA8 /* TYCoverVertiAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCoverVertiAnimator.m; sourceTree = "<group>"; };
+		2B27442B1DB9F1D50057FAA8 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		2B27442C1DB9F1D50057FAA8 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		2B27442E1DB9F1E50057FAA8 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		2B8DF7861DB8AD6B009237B2 /* TYPopupControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYPopupControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8DF78A1DB8AD6B009237B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B8DF78C1DB8AD6B009237B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +131,9 @@
 				2B8DF7901DB8AD6B009237B2 /* ViewController.m */,
 				2B8DF7B51DB8ADE5009237B2 /* PopViewController.h */,
 				2B8DF7B61DB8ADE5009237B2 /* PopViewController.m */,
+				2B27442B1DB9F1D50057FAA8 /* LoginView.h */,
+				2B27442C1DB9F1D50057FAA8 /* LoginView.m */,
+				2B27442E1DB9F1E50057FAA8 /* LoginView.xib */,
 				2B8DF7921DB8AD6B009237B2 /* Main.storyboard */,
 				2B8DF7951DB8AD6B009237B2 /* Assets.xcassets */,
 				2B8DF7971DB8AD6B009237B2 /* LaunchScreen.storyboard */,
@@ -248,6 +256,7 @@
 			files = (
 				2B8DF7991DB8AD6B009237B2 /* LaunchScreen.storyboard in Resources */,
 				2B8DF7961DB8AD6B009237B2 /* Assets.xcassets in Resources */,
+				2B27442F1DB9F1E50057FAA8 /* LoginView.xib in Resources */,
 				2B8DF7941DB8AD6B009237B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +280,7 @@
 				2B8DF7C61DB8BD79009237B2 /* TYPopFadeAnimator.m in Sources */,
 				2B8DF7BA1DB8B256009237B2 /* TYPopupAnimator.m in Sources */,
 				2B8DF7911DB8AD6B009237B2 /* ViewController.m in Sources */,
+				2B27442D1DB9F1D50057FAA8 /* LoginView.m in Sources */,
 				2B8DF7B71DB8ADE5009237B2 /* PopViewController.m in Sources */,
 				2B8DF78E1DB8AD6B009237B2 /* AppDelegate.m in Sources */,
 				2B2744121DB9B23C0057FAA8 /* TYCoverVertiAnimator.m in Sources */,

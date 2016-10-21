@@ -108,7 +108,8 @@
     self.transitioningDelegate = self;
     
     _popViewOriginY = 0;
-    _backgoundTapDismissEnable = YES;
+    _backgoundTapDismissEnable = NO;
+    _adjustKeyboardShowHide = YES;
 }
 
 + (Class)animatorClassFromPopupStyle:(TYPopupStyle)popupStyle
@@ -141,6 +142,8 @@
     [self addPopViewOrController];
     
     [self.view layoutIfNeeded];
+    
+    [self addKeyboardNotification];
 }
 
 - (void)addBackgroundView
@@ -178,12 +181,14 @@
     [self addChildViewController:_popViewController];
     [self.view addSubview:_popViewController.view];
     _popView = _popViewController.view;
+    [self setPopViewDefaultWhiteColor];
      [_popViewController didMoveToParentViewController:self];
 }
 
 - (void)addPopView
 {
     [self.view addSubview:_popView];
+    [self setPopViewDefaultWhiteColor];
 }
 
 - (void)addPopViewConstraint
@@ -202,13 +207,17 @@
     [self.view addConstraint:_popViewCenterYConstraint];
 }
 
-- (void)setPopViewOriginY:(CGFloat)popViewOriginY
+- (void)addKeyboardNotification
 {
-    _popViewOriginY = popViewOriginY;
-    
-    if (_popViewCenterYConstraint) {
-        _popViewCenterYConstraint.constant = [self popViewCenterYOffset];
-    }
+    // UIKeyboard Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)removeKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - geter setter
@@ -227,18 +236,34 @@
     if (!_backgroundView || !_backgroundView.superview) {
         _backgroundView = backgroundView;
     } else if (_backgroundView != backgroundView) {
-        [self addNewBackgroundView:backgroundView];
+        [self setNewBackgroundView:backgroundView aniamtion:YES];
     }
 }
 
-- (void)addNewBackgroundView:(UIView *)backgroundView
+- (void)setPopViewDefaultWhiteColor
+{
+    if (!_popView.backgroundColor) {
+        _popView.backgroundColor = [UIColor whiteColor];
+    }
+}
+
+- (void)setPopViewOriginY:(CGFloat)popViewOriginY
+{
+    _popViewOriginY = popViewOriginY;
+    
+    if (_popViewCenterYConstraint) {
+        _popViewCenterYConstraint.constant = [self popViewCenterYOffset];
+    }
+}
+
+- (void)setNewBackgroundView:(UIView *)backgroundView aniamtion:(BOOL)aniamtion
 {
     backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     backgroundView.alpha = 0;
     [self.view insertSubview:backgroundView aboveSubview:_backgroundView];
     [self addConstraintWithView:backgroundView edgeInset:UIEdgeInsetsZero];
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:aniamtion ? 0.3 : 0 animations:^{
         backgroundView.alpha = 1;
     } completion:^(BOOL finished) {
         [_backgroundView removeFromSuperview];
@@ -305,6 +330,42 @@
     return _popAnimatorClass ? [_popAnimatorClass popupAnimatorTransition:TYPopupTransitionDismiss] : nil;
 }
 
+#pragma mark - notifycation
+
+- (void)keyboardWillShow:(NSNotification*)notification{
+    if (!_adjustKeyboardShowHide || !_popView) {
+        return;
+    }
+    
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat keyboardDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    
+    CGFloat popViewCenterYOffset = [self popViewCenterYOffset];
+    CGFloat popViewBottomEdge = (CGRectGetHeight(self.view.frame) -  CGRectGetHeight(_popView.frame))/2 - popViewCenterYOffset;
+    CGFloat differ = CGRectGetHeight(keyboardRect) - popViewBottomEdge;
+    
+    if (differ >= 0) {
+        _popViewCenterYConstraint.constant = popViewCenterYOffset - differ;
+        [UIView animateWithDuration:keyboardDuration animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+
+- (void)keyboardWillHide:(NSNotification*)notification{
+    if (!_adjustKeyboardShowHide || !_popView) {
+        return;
+    }
+    CGFloat keyboardDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    
+    _popViewCenterYConstraint.constant = [self popViewCenterYOffset];
+    [UIView animateWithDuration:keyboardDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -312,7 +373,23 @@
 
 - (void)dealloc
 {
-    NSLog(@"%@ %s",NSStringFromClass([self class]), __FUNCTION__);
+    //NSLog(@"%@ %s",NSStringFromClass([self class]), __FUNCTION__);
+    [self removeKeyboardNotification];
+}
+
+@end
+
+@implementation UIView (TYPopupController)
+
+- (TYPopupController *)popupController
+{
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[TYPopupController class]]) {
+            return (TYPopupController *)nextResponder;
+        }
+    }
+    return nil;
 }
 
 @end
