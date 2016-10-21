@@ -14,6 +14,11 @@
 		2B8DF7961DB8AD6B009237B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DF7951DB8AD6B009237B2 /* Assets.xcassets */; };
 		2B8DF7991DB8AD6B009237B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DF7971DB8AD6B009237B2 /* LaunchScreen.storyboard */; };
 		2B8DF7A41DB8AD6B009237B2 /* TYPopupControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7A31DB8AD6B009237B2 /* TYPopupControllerDemoTests.m */; };
+		2B8DF7B11DB8AD91009237B2 /* TYPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7B01DB8AD91009237B2 /* TYPopupController.m */; };
+		2B8DF7B71DB8ADE5009237B2 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7B61DB8ADE5009237B2 /* PopViewController.m */; };
+		2B8DF7BA1DB8B256009237B2 /* TYPopupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */; };
+		2B8DF7C61DB8BD79009237B2 /* TYPopFadeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */; };
+		2B8DF7CA1DB8C4CB009237B2 /* TYScaleFadeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,16 @@
 		2B8DF79F1DB8AD6B009237B2 /* TYPopupControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TYPopupControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8DF7A31DB8AD6B009237B2 /* TYPopupControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPopupControllerDemoTests.m; sourceTree = "<group>"; };
 		2B8DF7A51DB8AD6B009237B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B8DF7AF1DB8AD91009237B2 /* TYPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPopupController.h; sourceTree = "<group>"; };
+		2B8DF7B01DB8AD91009237B2 /* TYPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPopupController.m; sourceTree = "<group>"; };
+		2B8DF7B51DB8ADE5009237B2 /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		2B8DF7B61DB8ADE5009237B2 /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		2B8DF7B81DB8B256009237B2 /* TYPopupAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPopupAnimator.h; sourceTree = "<group>"; };
+		2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPopupAnimator.m; sourceTree = "<group>"; };
+		2B8DF7C41DB8BD79009237B2 /* TYPopFadeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPopFadeAnimator.h; sourceTree = "<group>"; };
+		2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPopFadeAnimator.m; sourceTree = "<group>"; };
+		2B8DF7C81DB8C4CB009237B2 /* TYScaleFadeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYScaleFadeAnimator.h; sourceTree = "<group>"; };
+		2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYScaleFadeAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +96,13 @@
 		2B8DF7881DB8AD6B009237B2 /* TYPopupControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2B8DF7AE1DB8AD79009237B2 /* TYPopupController */,
 				2B8DF78C1DB8AD6B009237B2 /* AppDelegate.h */,
 				2B8DF78D1DB8AD6B009237B2 /* AppDelegate.m */,
 				2B8DF78F1DB8AD6B009237B2 /* ViewController.h */,
 				2B8DF7901DB8AD6B009237B2 /* ViewController.m */,
+				2B8DF7B51DB8ADE5009237B2 /* PopViewController.h */,
+				2B8DF7B61DB8ADE5009237B2 /* PopViewController.m */,
 				2B8DF7921DB8AD6B009237B2 /* Main.storyboard */,
 				2B8DF7951DB8AD6B009237B2 /* Assets.xcassets */,
 				2B8DF7971DB8AD6B009237B2 /* LaunchScreen.storyboard */,
@@ -109,6 +127,21 @@
 				2B8DF7A51DB8AD6B009237B2 /* Info.plist */,
 			);
 			path = TYPopupControllerDemoTests;
+			sourceTree = "<group>";
+		};
+		2B8DF7AE1DB8AD79009237B2 /* TYPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				2B8DF7AF1DB8AD91009237B2 /* TYPopupController.h */,
+				2B8DF7B01DB8AD91009237B2 /* TYPopupController.m */,
+				2B8DF7B81DB8B256009237B2 /* TYPopupAnimator.h */,
+				2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */,
+				2B8DF7C41DB8BD79009237B2 /* TYPopFadeAnimator.h */,
+				2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */,
+				2B8DF7C81DB8C4CB009237B2 /* TYScaleFadeAnimator.h */,
+				2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */,
+			);
+			path = TYPopupController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +248,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B8DF7CA1DB8C4CB009237B2 /* TYScaleFadeAnimator.m in Sources */,
+				2B8DF7C61DB8BD79009237B2 /* TYPopFadeAnimator.m in Sources */,
+				2B8DF7BA1DB8B256009237B2 /* TYPopupAnimator.m in Sources */,
 				2B8DF7911DB8AD6B009237B2 /* ViewController.m in Sources */,
+				2B8DF7B71DB8ADE5009237B2 /* PopViewController.m in Sources */,
 				2B8DF78E1DB8AD6B009237B2 /* AppDelegate.m in Sources */,
 				2B8DF78B1DB8AD6B009237B2 /* main.m in Sources */,
+				2B8DF7B11DB8AD91009237B2 /* TYPopupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -341,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -355,6 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZW52Q3KXX4;
 				INFOPLIST_FILE = TYPopupControllerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tany.TYPopupControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -367,6 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZW52Q3KXX4;
 				INFOPLIST_FILE = TYPopupControllerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tany.TYPopupControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
