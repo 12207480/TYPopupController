@@ -22,7 +22,7 @@
 }
 
 - (IBAction)popupControllerAction:(id)sender {
-    TYPopupController *popupController = [TYPopupController popupControllerWithController:[PopViewController new] size:CGSizeMake(200, 300) animatorClass:[TYScaleFadeAnimator class]];
+    TYPopupController *popupController = [TYPopupController popupControllerWithController:[PopViewController new] size:CGSizeMake(200, 300) animatorClass:[TYCoverVertiAnimator class]];
     [self presentViewController:popupController animated:YES completion:nil];
 }
 

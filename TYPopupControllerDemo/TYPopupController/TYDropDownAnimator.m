@@ -1,20 +1,20 @@
 //
-//  TYPopFadeAnimator.m
+//  TYDropDownAnimator.m
 //  TYPopupControllerDemo
 //
-//  Created by tany on 16/10/20.
+//  Created by tany on 16/10/21.
 //  Copyright © 2016年 tany. All rights reserved.
 //
 
-#import "TYPopFadeAnimator.h"
+#import "TYDropDownAnimator.h"
 #import "TYPopupController.h"
 
-@implementation TYPopFadeAnimator
+@implementation TYDropDownAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     if (self.isPresenting) {
-        return 0.45;
+        return 0.5;
     }
     return 0.25;
 }
@@ -24,30 +24,27 @@
     TYPopupController *popController = (TYPopupController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     popController.backgroundView.alpha = 0.0;
-    popController.popView.alpha = 0.0;
-    popController.popView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    
+    popController.popView.transform = CGAffineTransformMakeTranslation(0, -CGRectGetMaxY(popController.popView.frame));
     
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:popController.view];
     
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.65 initialSpringVelocity:0.5 options:0 animations:^{
+        
         popController.backgroundView.alpha = 1.0;
-        popController.popView.alpha = 1.0;
-        popController.popView.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        popController.popView.transform = CGAffineTransformIdentity;
+        
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 animations:^{
-            popController.popView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
+        [transitionContext completeTransition:YES];
     }];
 }
 
 - (void)dismissAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     TYPopupController *popController = (TYPopupController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    popController.popView.transform = CGAffineTransformIdentity;
-    [UIView animateWithDuration:0.25 animations:^{
+    
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         popController.backgroundView.alpha = 0.0;
         popController.popView.alpha = 0.0;
         popController.popView.transform = CGAffineTransformMakeScale(0.9, 0.9);

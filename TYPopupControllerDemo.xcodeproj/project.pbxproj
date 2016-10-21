@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B27440C1DB9AFC40057FAA8 /* TYDropDownAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27440B1DB9AFC40057FAA8 /* TYDropDownAnimator.m */; };
+		2B2744121DB9B23C0057FAA8 /* TYCoverVertiAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2744111DB9B23C0057FAA8 /* TYCoverVertiAnimator.m */; };
 		2B8DF78B1DB8AD6B009237B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF78A1DB8AD6B009237B2 /* main.m */; };
 		2B8DF78E1DB8AD6B009237B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF78D1DB8AD6B009237B2 /* AppDelegate.m */; };
 		2B8DF7911DB8AD6B009237B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7901DB8AD6B009237B2 /* ViewController.m */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B27440A1DB9AFC40057FAA8 /* TYDropDownAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDropDownAnimator.h; sourceTree = "<group>"; };
+		2B27440B1DB9AFC40057FAA8 /* TYDropDownAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDropDownAnimator.m; sourceTree = "<group>"; };
+		2B2744101DB9B23C0057FAA8 /* TYCoverVertiAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCoverVertiAnimator.h; sourceTree = "<group>"; };
+		2B2744111DB9B23C0057FAA8 /* TYCoverVertiAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCoverVertiAnimator.m; sourceTree = "<group>"; };
 		2B8DF7861DB8AD6B009237B2 /* TYPopupControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYPopupControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8DF78A1DB8AD6B009237B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B8DF78C1DB8AD6B009237B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2744091DB9AEE30057FAA8 /* PopupAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				2B8DF7B81DB8B256009237B2 /* TYPopupAnimator.h */,
+				2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */,
+				2B8DF7C41DB8BD79009237B2 /* TYPopFadeAnimator.h */,
+				2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */,
+				2B8DF7C81DB8C4CB009237B2 /* TYScaleFadeAnimator.h */,
+				2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */,
+				2B27440A1DB9AFC40057FAA8 /* TYDropDownAnimator.h */,
+				2B27440B1DB9AFC40057FAA8 /* TYDropDownAnimator.m */,
+				2B2744101DB9B23C0057FAA8 /* TYCoverVertiAnimator.h */,
+				2B2744111DB9B23C0057FAA8 /* TYCoverVertiAnimator.m */,
+			);
+			name = PopupAnimator;
+			sourceTree = "<group>";
+		};
 		2B8DF77D1DB8AD6B009237B2 = {
 			isa = PBXGroup;
 			children = (
@@ -134,12 +157,7 @@
 			children = (
 				2B8DF7AF1DB8AD91009237B2 /* TYPopupController.h */,
 				2B8DF7B01DB8AD91009237B2 /* TYPopupController.m */,
-				2B8DF7B81DB8B256009237B2 /* TYPopupAnimator.h */,
-				2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */,
-				2B8DF7C41DB8BD79009237B2 /* TYPopFadeAnimator.h */,
-				2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */,
-				2B8DF7C81DB8C4CB009237B2 /* TYScaleFadeAnimator.h */,
-				2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */,
+				2B2744091DB9AEE30057FAA8 /* PopupAnimator */,
 			);
 			path = TYPopupController;
 			sourceTree = "<group>";
@@ -248,12 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B27440C1DB9AFC40057FAA8 /* TYDropDownAnimator.m in Sources */,
 				2B8DF7CA1DB8C4CB009237B2 /* TYScaleFadeAnimator.m in Sources */,
 				2B8DF7C61DB8BD79009237B2 /* TYPopFadeAnimator.m in Sources */,
 				2B8DF7BA1DB8B256009237B2 /* TYPopupAnimator.m in Sources */,
 				2B8DF7911DB8AD6B009237B2 /* ViewController.m in Sources */,
 				2B8DF7B71DB8ADE5009237B2 /* PopViewController.m in Sources */,
 				2B8DF78E1DB8AD6B009237B2 /* AppDelegate.m in Sources */,
+				2B2744121DB9B23C0057FAA8 /* TYCoverVertiAnimator.m in Sources */,
 				2B8DF78B1DB8AD6B009237B2 /* main.m in Sources */,
 				2B8DF7B11DB8AD91009237B2 /* TYPopupController.m in Sources */,
 			);
@@ -458,6 +478,7 @@
 				2B8DF7AA1DB8AD6B009237B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B8DF7AB1DB8AD6B009237B2 /* Build configuration list for PBXNativeTarget "TYPopupControllerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +487,7 @@
 				2B8DF7AD1DB8AD6B009237B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

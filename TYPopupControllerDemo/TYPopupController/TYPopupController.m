@@ -60,12 +60,17 @@
 
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size
 {
-    return [self popupControllerWithController:popViewController size:size animatorClass:[TYPopFadeAnimator class]];
+    return [self popupControllerWithController:popViewController size:size popupStyle:TYPopupStyleFade];
 }
 
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size animatorClass:(Class)animatorClass
 {
     return [[self alloc]initWithPopViewController:popViewController size:size animatorClass:animatorClass];
+}
+
++ (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size popupStyle:(TYPopupStyle)popupStyle
+{
+    return [self popupControllerWithController:popViewController size:size animatorClass:[self animatorClassFromPopupStyle:popupStyle]];
 }
 
 #pragma mark - popView
@@ -87,7 +92,12 @@
 
 + (instancetype)popupControllerWithView:(UIView *)popView
 {
-    return [self popupControllerWithView:popView animatorClass:[TYPopFadeAnimator class]];
+    return [self popupControllerWithView:popView popupStyle:TYPopupStyleFade];
+}
+
++ (instancetype)popupControllerWithView:(UIView *)popView popupStyle:(TYPopupStyle)popupStyle
+{
+    return [self popupControllerWithView:popView animatorClass:[self animatorClassFromPopupStyle:popupStyle]];
 }
 
 - (void)configureController
@@ -99,6 +109,22 @@
     
     _popViewOriginY = 0;
     _backgoundTapDismissEnable = YES;
+}
+
++ (Class)animatorClassFromPopupStyle:(TYPopupStyle)popupStyle
+{
+    switch (popupStyle) {
+        case TYPopupStyleFade:
+            return [TYPopFadeAnimator class];
+        case TYPopupStyleScaleFade:
+            return [TYScaleFadeAnimator class];
+        case TYPopupStyleDropDown:
+            return [TYDropDownAnimator class];
+        case TYPopupStyleCoverVertical:
+            return [TYCoverVertiAnimator class];
+        default:
+            return nil;
+    }
 }
 
 #pragma mark - life cycle

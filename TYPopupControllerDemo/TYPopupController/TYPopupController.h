@@ -10,6 +10,15 @@
 #import "TYPopupAnimator.h"
 #import "TYPopFadeAnimator.h"
 #import "TYScaleFadeAnimator.h"
+#import "TYDropDownAnimator.h"
+#import "TYCoverVertiAnimator.h"
+
+typedef NS_ENUM(NSUInteger, TYPopupStyle) {
+    TYPopupStyleFade,
+    TYPopupStyleScaleFade,
+    TYPopupStyleDropDown,
+    TYPopupStyleCoverVertical,
+};
 
 @interface TYPopupController : UIViewController
 
@@ -33,11 +42,15 @@
 
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size;
 
++ (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size popupStyle:(TYPopupStyle)popupStyle;
+
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)size animatorClass:(Class)animatorClass;
 
 #pragma mark - popView
 
 + (instancetype)popupControllerWithView:(UIView *)popView;
+
++ (instancetype)popupControllerWithView:(UIView *)popView popupStyle:(TYPopupStyle)popupStyle;
 
 + (instancetype)popupControllerWithView:(UIView *)popView animatorClass:(Class)animatorClass;
 

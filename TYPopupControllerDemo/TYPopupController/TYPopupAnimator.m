@@ -30,6 +30,12 @@
     return [[self alloc]initWithTransition:transition];
 }
 
+- (BOOL)isPresenting
+{
+    return _transition == TYPopupTransitionPresent;
+}
+
+
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.4;
@@ -37,7 +43,7 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    if (_transition == TYPopupTransitionPresent) {
+    if (self.isPresenting) {
         [self presentAnimateTransition:transitionContext];
     }else {
         [self dismissAnimateTransition:transitionContext];

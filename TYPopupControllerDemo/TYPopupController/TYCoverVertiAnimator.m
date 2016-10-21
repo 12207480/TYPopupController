@@ -1,22 +1,19 @@
 //
-//  TYPopFadeAnimator.m
+//  TYCoverVertiAnimator.m
 //  TYPopupControllerDemo
 //
-//  Created by tany on 16/10/20.
+//  Created by tany on 16/10/21.
 //  Copyright © 2016年 tany. All rights reserved.
 //
 
-#import "TYPopFadeAnimator.h"
+#import "TYCoverVertiAnimator.h"
 #import "TYPopupController.h"
 
-@implementation TYPopFadeAnimator
+@implementation TYCoverVertiAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    if (self.isPresenting) {
-        return 0.45;
-    }
-    return 0.25;
+    return 0.3;
 }
 
 - (void)presentAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -24,33 +21,27 @@
     TYPopupController *popController = (TYPopupController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     popController.backgroundView.alpha = 0.0;
-    popController.popView.alpha = 0.0;
-    popController.popView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    
+    popController.popView.transform = CGAffineTransformMakeTranslation(0, CGRectGetHeight(popController.view.frame) - CGRectGetMinY(popController.popView.frame));
     
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:popController.view];
     
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         popController.backgroundView.alpha = 1.0;
-        popController.popView.alpha = 1.0;
-        popController.popView.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        popController.popView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 animations:^{
-            popController.popView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
+        [transitionContext completeTransition:YES];
     }];
 }
 
 - (void)dismissAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     TYPopupController *popController = (TYPopupController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    popController.popView.transform = CGAffineTransformIdentity;
-    [UIView animateWithDuration:0.25 animations:^{
+    
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         popController.backgroundView.alpha = 0.0;
-        popController.popView.alpha = 0.0;
-        popController.popView.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        popController.popView.transform = CGAffineTransformMakeTranslation(0, CGRectGetHeight(popController.view.frame) - CGRectGetMinY(popController.popView.frame));
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];

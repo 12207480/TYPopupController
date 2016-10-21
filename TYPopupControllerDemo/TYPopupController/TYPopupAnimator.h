@@ -17,6 +17,8 @@ typedef NS_ENUM(NSUInteger, TYPopupTransition){
 
 @property (nonatomic, assign, readonly) TYPopupTransition transition;
 
+@property (nonatomic, assign, readonly) BOOL isPresenting; // present or dismiss
+
 + (instancetype)popupAnimatorTransition:(TYPopupTransition)transition;
 
 #pragma mark - override
