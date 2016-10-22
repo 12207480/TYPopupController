@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Flj-2o-oPz">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -18,58 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-K2-2M3"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSL-QC-MUc">
-                                <state key="normal" title="popupController"/>
+                                <state key="normal" title="popupController">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="popupControllerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XFz-0X-bYi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54Y-MI-Be5">
-                                <state key="normal" title="popupView"/>
+                                <state key="normal" title="popupView">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="popupViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0OF-Jg-qwT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru1-KV-EkA">
-                                <frame key="frameInset" minX="149" minY="358" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="loginView"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru1-KV-EkA">
+                                <state key="normal" title="loginView">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="loginViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aop-a6-DUA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oou-mZ-qxJ">
+                                <state key="normal" title="blurView">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blurViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WCu-uv-pfQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Ru1-KV-EkA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D7O-we-LRU"/>
+                            <constraint firstItem="a2J-K2-2M3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ENZ-fs-9hL"/>
                             <constraint firstItem="54Y-MI-Be5" firstAttribute="top" secondItem="rSL-QC-MUc" secondAttribute="bottom" constant="45" id="PCw-wI-Gjc"/>
                             <constraint firstItem="54Y-MI-Be5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RHb-Lq-uBr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a2J-K2-2M3" secondAttribute="bottom" id="SuX-AR-Fly"/>
+                            <constraint firstItem="oou-mZ-qxJ" firstAttribute="top" secondItem="Ru1-KV-EkA" secondAttribute="bottom" constant="25" id="Ymq-eI-mdf"/>
                             <constraint firstItem="rSL-QC-MUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bjY-G3-uxp"/>
+                            <constraint firstItem="a2J-K2-2M3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cAx-Jj-7I5"/>
+                            <constraint firstAttribute="trailing" secondItem="a2J-K2-2M3" secondAttribute="trailing" id="h6N-3O-xDD"/>
+                            <constraint firstItem="Ru1-KV-EkA" firstAttribute="top" secondItem="54Y-MI-Be5" secondAttribute="bottom" constant="50" id="jzH-fP-432"/>
                             <constraint firstItem="rSL-QC-MUc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="160" id="kKx-FQ-d9o"/>
+                            <constraint firstItem="oou-mZ-qxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y0x-zj-3pc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wY6-TJ-uAi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9j9-pr-9W3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Flj-2o-oPz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ESk-zf-Ixc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Sht-Y3-fyu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2E1-Mg-g5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-12" y="-543.77811094452773"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="screen.jpg" width="600" height="880"/>
+    </resources>
 </document>

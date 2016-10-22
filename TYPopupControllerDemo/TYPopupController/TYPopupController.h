@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, TYPopupStyle) {
 
 @property (nonatomic, assign) BOOL backgoundTapDismissEnable;  // default NO
 
-@property (nonatomic, assign) BOOL adjustKeyboardShowHide; // auto adjust keyboard show or hide default YES
+@property (nonatomic, assign) BOOL adjustKeyboardShowHide; // auto adjust keyboard show or hide default NO
 
 @property (nonatomic, copy) void (^dismissComplete)(void); // dismiss controller completed block
 

@@ -109,7 +109,7 @@
     
     _popViewOriginY = 0;
     _backgoundTapDismissEnable = NO;
-    _adjustKeyboardShowHide = YES;
+    _adjustKeyboardShowHide = NO;
 }
 
 + (Class)animatorClassFromPopupStyle:(TYPopupStyle)popupStyle

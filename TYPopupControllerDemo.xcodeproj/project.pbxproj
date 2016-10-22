@@ -23,6 +23,7 @@
 		2B8DF7BA1DB8B256009237B2 /* TYPopupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7B91DB8B256009237B2 /* TYPopupAnimator.m */; };
 		2B8DF7C61DB8BD79009237B2 /* TYPopFadeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */; };
 		2B8DF7CA1DB8C4CB009237B2 /* TYScaleFadeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */; };
+		B051A58F1DBA433000075FB3 /* screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B051A58E1DBA433000075FB3 /* screen.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		2B8DF7C51DB8BD79009237B2 /* TYPopFadeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPopFadeAnimator.m; sourceTree = "<group>"; };
 		2B8DF7C81DB8C4CB009237B2 /* TYScaleFadeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYScaleFadeAnimator.h; sourceTree = "<group>"; };
 		2B8DF7C91DB8C4CB009237B2 /* TYScaleFadeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYScaleFadeAnimator.m; sourceTree = "<group>"; };
+		B051A58E1DBA433000075FB3 /* screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		2B8DF7891DB8AD6B009237B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B051A58E1DBA433000075FB3 /* screen.jpg */,
 				2B8DF78A1DB8AD6B009237B2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8DF7991DB8AD6B009237B2 /* LaunchScreen.storyboard in Resources */,
+				B051A58F1DBA433000075FB3 /* screen.jpg in Resources */,
 				2B8DF7961DB8AD6B009237B2 /* Assets.xcassets in Resources */,
 				2B27442F1DB9F1E50057FAA8 /* LoginView.xib in Resources */,
 				2B8DF7941DB8AD6B009237B2 /* Main.storyboard in Resources */,

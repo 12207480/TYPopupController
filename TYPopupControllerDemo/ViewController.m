@@ -24,12 +24,14 @@
 
 - (IBAction)popupControllerAction:(id)sender {
     TYPopupController *popupController = [TYPopupController popupControllerWithController:[PopViewController new] size:CGSizeMake(200, 300) popupStyle:TYPopupStyleCoverVertical];
+    popupController.backgoundTapDismissEnable = YES;
     [self presentViewController:popupController animated:YES completion:nil];
 }
 
 - (IBAction)popupViewAction:(id)sender {
     UIView *popView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 300)];
     TYPopupController *popupController = [TYPopupController popupControllerWithView:popView];
+    popupController.backgoundTapDismissEnable = YES;
     [self presentViewController:popupController animated:YES completion:nil];
 }
 - (IBAction)loginViewAction:(id)sender {
@@ -37,8 +39,22 @@
     [logView.cancleButton addTarget:self action:@selector(cancleAction:) forControlEvents:UIControlEventTouchUpInside];
     [logView.loginButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     TYPopupController *popupController = [TYPopupController popupControllerWithView:logView];
+    popupController.adjustKeyboardShowHide = YES;
     [self presentViewController:popupController animated:YES completion:nil];
 
+}
+
+- (IBAction)blurViewAction:(id)sender {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        LoginView *logView = [LoginView createViewFromNib];
+        [logView.cancleButton addTarget:self action:@selector(cancleAction:) forControlEvents:UIControlEventTouchUpInside];
+        [logView.loginButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
+        TYPopupController *popupController = [TYPopupController popupControllerWithView:logView];
+        popupController.adjustKeyboardShowHide = YES;
+        popupController.backgroundView = visualEffectView;
+        [self presentViewController:popupController animated:YES completion:nil];
+    }
 }
 
 #pragma mark - action
