@@ -67,6 +67,6 @@ typedef NS_ENUM(NSUInteger, TYPopupStyle) {
 
 @interface UIView (TYPopupController)
 
-- (TYPopupController *)popupController; // after call viewdidLoad or addsubView, have value
+- (TYPopupController *)popupController; // after super call viewdidLoad or addsubView, have value
 
 @end
