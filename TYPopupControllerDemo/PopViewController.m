@@ -7,9 +7,11 @@
 //
 
 #import "PopViewController.h"
+#import "LoginView.h"
+#import "TYPopupController.h"
 
 @interface PopViewController ()
-
+@property (nonatomic, weak) LoginView *logView;
 @end
 
 @implementation PopViewController
@@ -18,6 +20,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //self.view.backgroundColor = [UIColor redColor];
+    
+    [self addLoginView];
+}
+
+- (void)addLoginView
+{
+    LoginView *logView = [LoginView createViewFromNib];
+    [logView.cancleButton addTarget:self action:@selector(cancleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [logView.loginButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:logView];
+    _logView = logView;
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    _logView.frame = self.view.bounds;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -32,6 +51,19 @@
     [super viewWillDisappear:animated];
     
     NSLog(@"%s",__FUNCTION__);
+}
+
+#pragma mark - action
+
+- (void)cancleAction:(UIButton *)button
+{
+    [_logView endEditing:YES];
+}
+
+- (void)loginAction:(UIButton *)button
+{
+    [_logView endEditing:YES];
+    [_logView.popupController dismissViewControllerAnimated:YES];
 }
 
 
