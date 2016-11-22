@@ -134,7 +134,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor clearColor];
-
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) {
+        [self adjustViewCorrectFrameIfIpadiOS7];
+    }
+    
     [self addBackgroundView];
     
     [self addSingleTapGesture];
@@ -144,6 +147,18 @@
     [self.view layoutIfNeeded];
     
     [self addKeyboardNotification];
+}
+
+- (void)adjustViewCorrectFrameIfIpadiOS7
+{
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    UIInterfaceOrientation currentOrient = [UIApplication  sharedApplication].statusBarOrientation;
+    if (currentOrient == UIDeviceOrientationLandscapeRight ||currentOrient == UIDeviceOrientationLandscapeLeft ) {
+        screenWidth = [[UIScreen mainScreen] bounds].size.height;
+        screenHeight = [[UIScreen mainScreen] bounds].size.width;
+    }
+    self.view.frame = CGRectMake(0,0,screenWidth,screenHeight);
 }
 
 - (void)addBackgroundView
@@ -179,10 +194,11 @@
 - (void)addPopViewController
 {
     [self addChildViewController:_popViewController];
+    _popViewController.view.frame = CGRectMake(0, 0, _popViewSize.width, _popViewSize.height);
     [self.view addSubview:_popViewController.view];
-    _popView = _popViewController.view;
     [self setPopViewDefaultWhiteColor];
      [_popViewController didMoveToParentViewController:self];
+    _popView = _popViewController.view;
 }
 
 - (void)addPopView
