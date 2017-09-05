@@ -35,7 +35,6 @@
     return _transition == TYPopupTransitionPresent;
 }
 
-
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.4;

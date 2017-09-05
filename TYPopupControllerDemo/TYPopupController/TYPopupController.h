@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "TYPopupAnimator.h"
 #import "TYPopFadeAnimator.h"
-#import "TYScaleFadeAnimator.h"
 #import "TYDropDownAnimator.h"
 #import "TYCoverVertiAnimator.h"
+#import "TYSideInOutAnimator.h"
 
 typedef NS_ENUM(NSUInteger, TYPopupStyle) {
     TYPopupStyleFade,
     TYPopupStyleScaleFade,
     TYPopupStyleDropDown,
     TYPopupStyleCoverVertical,
+    TYPopupStyleSideLeftInOut,
+    TYPopupStyleSideRightInOut,
 };
 
 @interface TYPopupController : UIViewController
@@ -28,7 +30,8 @@ typedef NS_ENUM(NSUInteger, TYPopupStyle) {
 
 @property (nonatomic, assign, readonly) Class popAnimatorClass;
 
-@property (nonatomic, assign, readonly) CGSize popViewSize; // pop view size
+@property (nonatomic, assign, readonly) CGSize popViewSize; // pop view size if size‘s height = 0 is equal to superView height
+@property (nonatomic, assign) BOOL popupViewHeightAlwaysEqualToSuperView;// default NO
 
 @property (nonatomic, strong) UIView *backgroundView; // you set background or  coustom view to it
 
@@ -42,6 +45,7 @@ typedef NS_ENUM(NSUInteger, TYPopupStyle) {
 
 #pragma mark - popViewController
 
+// if size‘s height = 0 is equal to superView height
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)popViewSize;
 
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)popViewSize popupStyle:(TYPopupStyle)popupStyle;
@@ -49,7 +53,7 @@ typedef NS_ENUM(NSUInteger, TYPopupStyle) {
 + (instancetype)popupControllerWithController:(UIViewController *)popViewController size:(CGSize)popViewSize animatorClass:(Class)animatorClass;
 
 #pragma mark - popView
-
+// if popView size‘s height = 0 is equal to superView height
 + (instancetype)popupControllerWithView:(UIView *)popView;
 
 + (instancetype)popupControllerWithView:(UIView *)popView popupStyle:(TYPopupStyle)popupStyle;

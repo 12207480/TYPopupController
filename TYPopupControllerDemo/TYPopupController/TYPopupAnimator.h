@@ -13,16 +13,13 @@ typedef NS_ENUM(NSUInteger, TYPopupTransition){
     TYPopupTransitionDismiss,
 };
 
-@interface TYPopupAnimator : NSObject
+@class TYPopupController;
 
-@property (nonatomic, assign, readonly) TYPopupTransition transition;
+@protocol TYPopupAnimator <NSObject>
+@optional
++ (void)addPopupViewLayoutConstraint:(TYPopupController *)popupControler;
 
-@property (nonatomic, assign, readonly) BOOL isPresenting; // present or dismiss
-
-+ (instancetype)popupAnimatorTransition:(TYPopupTransition)transition;
-
-#pragma mark - override
-
+@required
 // transiton time
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext;
 
@@ -31,5 +28,15 @@ typedef NS_ENUM(NSUInteger, TYPopupTransition){
 
 // dismiss transiton
 - (void)dismissAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext;
+
+@end
+
+@interface TYPopupAnimator : NSObject<TYPopupAnimator>
+
+@property (nonatomic, assign, readonly) TYPopupTransition transition;
+
+@property (nonatomic, assign, readonly) BOOL isPresenting; // present or dismiss
+
++ (instancetype)popupAnimatorTransition:(TYPopupTransition)transition;
 
 @end

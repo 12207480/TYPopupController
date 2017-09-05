@@ -7,6 +7,7 @@
 //
 
 #import "TYPopupController.h"
+#import <objc/runtime.h>
 
 @interface TYPopupController ()<UIViewControllerTransitioningDelegate>
 
@@ -106,7 +107,7 @@
     self.definesPresentationContext = YES;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
-    
+    _popupViewHeightAlwaysEqualToSuperView = NO;
     _popViewOriginY = 0;
     _backgoundTapDismissEnable = NO;
     _adjustKeyboardShowHide = NO;
@@ -123,6 +124,10 @@
             return [TYDropDownAnimator class];
         case TYPopupStyleCoverVertical:
             return [TYCoverVertiAnimator class];
+        case TYPopupStyleSideLeftInOut:
+            return [TYSideLeftInAnimator class];
+        case TYPopupStyleSideRightInOut:
+            return [TYSideRightInAnimator class];
         default:
             return nil;
     }
@@ -188,7 +193,14 @@
     }else if(_popView) {
         [self addPopView];
     }
-    [self addPopViewConstraint];
+    
+    if (class_respondsToSelector(object_getClass(_popAnimatorClass), @selector(addPopupViewLayoutConstraint:))) {
+        NSAssert(_popView,@"popViewController and popView are nil!");
+        NSAssert(!CGSizeEqualToSize(_popViewSize, CGSizeZero), @"popView size can't zero!");
+        [_popAnimatorClass performSelector:@selector(addPopupViewLayoutConstraint:)withObject:self];
+    }else {
+        [self addPopViewConstraint];
+    }
 }
 
 - (void)addPopViewController
@@ -330,7 +342,12 @@
 {
     [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:size.width]];
     
-    [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:size.height]];
+    if (size.height > 0 && !_popupViewHeightAlwaysEqualToSuperView) {
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:size.height]];
+    }else {
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    }
 }
 
 

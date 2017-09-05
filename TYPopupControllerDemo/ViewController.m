@@ -23,7 +23,7 @@
 }
 
 - (IBAction)popupControllerAction:(id)sender {
-    TYPopupController *popupController = [TYPopupController popupControllerWithController:[PopViewController new] size:CGSizeMake(300, 250) popupStyle:TYPopupStyleDropDown];
+    TYPopupController *popupController = [TYPopupController popupControllerWithController:[[PopViewController alloc]init] size:CGSizeMake(300, 300) popupStyle:TYPopupStyleDropDown];
     popupController.backgoundTapDismissEnable = YES;
     popupController.adjustKeyboardShowHide = YES;
     [self presentViewController:popupController animated:YES completion:nil];
@@ -39,7 +39,8 @@
     LoginView *logView = [LoginView createViewFromNib];
     [logView.cancleButton addTarget:self action:@selector(cancleAction:) forControlEvents:UIControlEventTouchUpInside];
     [logView.loginButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
-    TYPopupController *popupController = [TYPopupController popupControllerWithView:logView];
+    TYPopupController *popupController = [TYPopupController popupControllerWithView:logView popupStyle:TYPopupStyleSideLeftInOut];
+    popupController.popupViewHeightAlwaysEqualToSuperView = YES;
     popupController.adjustKeyboardShowHide = YES;
     [self presentViewController:popupController animated:YES completion:nil];
 

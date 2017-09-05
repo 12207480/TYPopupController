@@ -11,3 +11,7 @@
 @interface TYPopFadeAnimator : TYPopupAnimator
 
 @end
+
+@interface TYScaleFadeAnimator : TYPopupAnimator
+
+@end
